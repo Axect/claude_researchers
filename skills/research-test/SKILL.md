@@ -13,6 +13,10 @@ Creates tests for research code and generates publication-quality visualizations
 
 ## Instructions
 
+### MCP Tool Rules
+- **Gemini**: Always pass `model: "gemini-3-pro-preview"` explicitly. Never omit or use other model IDs.
+- **Visualization**: Use `matplotlib` with `scienceplots` (`['science', 'nature']` style). Save plots as PNG (300 dpi) and PDF.
+
 ### Step 0: Locate Implementation
 
 1. Find the active research output directory (from `$ARGUMENTS` or most recent).

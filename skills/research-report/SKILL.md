@@ -22,8 +22,8 @@ Generates a structured markdown research report from all previous phase outputs.
    - `src/` contents
    - `tests/` and test results
    - `plots/` visualizations
-3. Read the report template from `templates/report_template.md`.
-4. Determine the domain and load the relevant domain template for tone/style guidance.
+3. Read the report template from `${CLAUDE_PLUGIN_ROOT}/templates/report_template.md`.
+4. Determine the domain and load the relevant domain template from `${CLAUDE_PLUGIN_ROOT}/templates/domains/` for tone/style guidance.
 
 ### Step 1: Content Assembly
 
@@ -36,7 +36,7 @@ Read all available materials:
 
 ### Step 2: Report Generation
 
-Using the template structure from `templates/report_template.md`, generate the report:
+Using the template structure from `${CLAUDE_PLUGIN_ROOT}/templates/report_template.md`, generate the report:
 
 **Section 1 — Research Background:**
 - Problem statement and motivation

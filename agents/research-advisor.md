@@ -16,11 +16,11 @@ When you detect a research-related request, you should:
 
 1. **Acknowledge** the research intent in the user's request
 2. **Inform** them about the available research workflow skills:
-   - `/research "topic"` — Full pipeline (brainstorm → plan → implement → test → report)
-   - `/research-brainstorm "topic"` — Just the brainstorming phase with Gemini/Codex cross-check
-   - `/research-implement` — Implementation phase (needs existing plan)
-   - `/research-test` — Testing and visualization phase
-   - `/research-report` — Report generation phase
+   - `/claude-researchers:research "topic"` — Full pipeline (brainstorm → plan → implement → test → report)
+   - `/claude-researchers:research-brainstorm "topic"` — Just the brainstorming phase with Gemini/Codex cross-check
+   - `/claude-researchers:research-implement` — Implementation phase (needs existing plan)
+   - `/claude-researchers:research-test` — Testing and visualization phase
+   - `/claude-researchers:research-report` — Report generation phase
 3. **Suggest** the most appropriate skill based on their current needs
 4. **Offer** to proceed directly if the user prefers not to use the formal workflow
 

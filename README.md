@@ -1,41 +1,96 @@
 # Claude Researchers
 
-A research agent workflow for Physics, AI/ML, and other scientific domains, powered by Claude Code's native skill and agent system.
+A Claude Code plugin providing a multi-model research workflow for Physics, AI/ML, and scientific domains.
 
-## How It Works
+## Installation
 
-This workflow orchestrates multiple AI models (Claude, Gemini, Codex) through a structured research pipeline:
+### Option 1: Plugin Install (Recommended)
 
-1. **Brainstorming** — Gemini and Codex independently generate ideas, then cross-check each other's work
-2. **Planning** — Claude synthesizes all inputs into a concrete research plan
-3. **Implementation** — Claude Code writes the research code
-4. **Testing & Visualization** — Tests are designed collaboratively; plots use publication-quality styling
-5. **Reporting** — A structured markdown report captures the entire research process
-
-## Quick Start
-
-### Setup
 ```bash
-# Install dependencies
-uv sync
+claude plugin install axect/claude_researchers
 ```
 
-### Run Full Pipeline
-```
-/research "your research topic" --domain physics
+### Option 2: Local Plugin Directory
+
+```bash
+git clone https://github.com/axect/claude_researchers.git
+claude --plugin-dir /path/to/claude_researchers
 ```
 
-### Run Individual Phases
-```
-/research-brainstorm "topic"   # Brainstorming only
-/research-implement            # Implementation (needs existing plan)
-/research-test                 # Testing & visualization
-/research-report               # Report generation
+### Option 3: Clone into Workspace
+
+```bash
+git clone https://github.com/axect/claude_researchers.git
+cd claude_researchers
+claude  # Plugin auto-detected from .claude-plugin/plugin.json
 ```
 
-## Output
+## Prerequisites
 
-All outputs are saved to `outputs/{topic_YYYYMMDD}/` with structured subdirectories for brainstorming records, plans, source code, tests, plots, and the final report.
+- **Python >= 3.11**
+- **[uv](https://docs.astral.sh/uv/)** — Python package manager
+- **[Claude Code](https://docs.anthropic.com/en/docs/claude-code)** — Anthropic CLI
+
+### MCP Servers (Required)
+
+This plugin requires three MCP servers configured in your Claude Code environment:
+
+```bash
+# Gemini CLI — cross-model brainstorming and review
+claude mcp add gemini-cli -- npx -y @anthropic-ai/gemini-cli
+
+# Codex CLI — independent analysis and ideation
+claude mcp add codex-cli -- npx -y @anthropic-ai/codex-cli
+
+# Context7 — library documentation lookup
+claude mcp add context7 -- npx -y @anthropic-ai/context7
+```
+
+> **Note**: MCP server package names above are examples. Check each server's actual installation instructions for the correct package names.
+
+### Python Dependencies
+
+```bash
+uv add matplotlib SciencePlots numpy
+```
+
+## Usage
+
+### Full Research Pipeline
+
+```
+/claude-researchers:research "your research topic" --domain physics
+```
+
+This runs the complete pipeline:
+1. **Brainstorming** — Gemini and Codex independently generate ideas, then cross-check each other
+2. **Planning** — Claude synthesizes inputs into a concrete research plan
+3. **Implementation** — Claude Code writes the research code
+4. **Testing & Visualization** — Tests designed collaboratively; publication-quality plots
+5. **Reporting** — Structured markdown report of the entire process
+
+### Individual Phase Skills
+
+```
+/claude-researchers:research-brainstorm "topic"   # Brainstorming only
+/claude-researchers:research-implement             # Implementation (needs existing plan)
+/claude-researchers:research-test                  # Testing & visualization
+/claude-researchers:research-report                # Report generation
+```
+
+## Output Structure
+
+All outputs are saved to `outputs/{topic_YYYYMMDD}/`:
+
+```
+outputs/{topic_YYYYMMDD}/
+├── brainstorm/          # Phase 1: 5 brainstorm documents
+├── plan/                # Phase 2: research plan
+├── src/                 # Phase 3: implementation code
+├── tests/               # Phase 4: test code
+├── plots/               # Phase 4: PNG (300 dpi) + PDF plots
+└── report.md            # Phase 5: final report
+```
 
 ## Visualization
 
@@ -47,7 +102,27 @@ Domain-specific context templates guide the AI models:
 - `templates/domains/physics.md` — Physical intuition, dimensional analysis, conservation laws
 - `templates/domains/ai_ml.md` — Benchmarks, ablation studies, reproducibility
 
-## Requirements
+## Recommended Permissions
 
-- Python >= 3.11
-- Claude Code with MCP servers configured (Gemini, Codex, Context7)
+Add to your project's `.claude/settings.local.json`:
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv:*)",
+      "Bash(uv run:*)",
+      "Bash(uv add:*)",
+      "Bash(mkdir:*)",
+      "mcp__gemini-cli__ask-gemini",
+      "mcp__gemini-cli__brainstorm",
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "mcp__plugin_context7_context7__query-docs"
+    ]
+  }
+}
+```
+
+## License
+
+MIT

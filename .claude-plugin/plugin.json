@@ -1,0 +1,12 @@
+{
+  "name": "claude-researchers",
+  "version": "0.1.0",
+  "description": "Multi-model research workflow for Physics, AI/ML, and scientific domains",
+  "author": {
+    "name": "axect",
+    "url": "https://github.com/axect"
+  },
+  "repository": "https://github.com/axect/claude_researchers",
+  "license": "MIT",
+  "keywords": ["research", "science", "physics", "ai-ml", "multi-model"]
+}

@@ -13,6 +13,9 @@ Generates and cross-validates research ideas using Gemini and Codex in parallel,
 
 ## Instructions
 
+### MCP Tool Rules
+- **Gemini**: Always pass `model: "gemini-3-pro-preview"` explicitly. Never omit or use other model IDs.
+
 When this skill is invoked, follow these steps exactly:
 
 ### Step 0: Setup
@@ -21,7 +24,7 @@ When this skill is invoked, follow these steps exactly:
 2. Create the output directory: `outputs/{sanitized_topic}_{YYYYMMDD}/brainstorm/`
    - Sanitize the topic: lowercase, replace spaces with underscores, remove special characters, truncate to 50 chars.
    - Use today's date in YYYYMMDD format.
-3. If a domain template exists at `templates/domains/{domain}.md`, read it for context.
+3. If a domain template exists at `${CLAUDE_PLUGIN_ROOT}/templates/domains/{domain}.md`, read it for context.
 
 ### Step 1a: Parallel Independent Brainstorming
 

@@ -13,6 +13,11 @@ Runs the complete research pipeline: Brainstorming → Planning → Implementati
 
 ## Instructions
 
+### MCP Tool Rules
+- **Gemini**: Always pass `model: "gemini-3-pro-preview"` explicitly. Never omit or use other model IDs.
+- **Context7**: Use `mcp__plugin_context7_context7__query-docs` for library documentation lookups during implementation.
+- **Visualization**: Use `matplotlib` with `scienceplots` (`['science', 'nature']` style). Save plots as PNG (300 dpi) and PDF.
+
 When this skill is invoked, execute the full research pipeline below. **Always pause for user confirmation between phases.**
 
 ---
@@ -33,14 +38,14 @@ When this skill is invoked, execute the full research pipeline below. **Always p
    ```
    - Sanitize topic: lowercase, spaces→underscores, remove special chars, max 50 chars
    - Date format: YYYYMMDD (today's date)
-3. If the domain has a template in `templates/domains/`, read it as context.
+3. If the domain has a template in `${CLAUDE_PLUGIN_ROOT}/templates/domains/`, read it as context.
 4. Announce to the user: topic, domain, output directory.
 
 ---
 
 ### Phase 1: Brainstorming
 
-Execute the `/research-brainstorm` workflow:
+Execute the `/claude-researchers:research-brainstorm` workflow:
 
 **Step 1a — Parallel Brainstorming:**
 - Call `mcp__gemini-cli__brainstorm` with `model: "gemini-3-pro-preview"` for creative/theoretical ideas
@@ -76,7 +81,7 @@ Execute the `/research-brainstorm` workflow:
 
 ### Phase 3: Implementation
 
-Execute the `/research-implement` workflow:
+Execute the `/claude-researchers:research-implement` workflow:
 
 1. Follow `research_plan.md` to implement code in `src/`
 2. Use Context7 for library documentation as needed
@@ -89,7 +94,7 @@ Execute the `/research-implement` workflow:
 
 ### Phase 4: Testing & Visualization
 
-Execute the `/research-test` workflow:
+Execute the `/claude-researchers:research-test` workflow:
 
 **Step 4a — Test Design:**
 - Consult Gemini for test case suggestions
@@ -111,10 +116,10 @@ Execute the `/research-test` workflow:
 
 ### Phase 5: Reporting
 
-Execute the `/research-report` workflow:
+Execute the `/claude-researchers:research-report` workflow:
 
 1. Gather all phase outputs
-2. Generate `report.md` using `templates/report_template.md` structure
+2. Generate `report.md` using `${CLAUDE_PLUGIN_ROOT}/templates/report_template.md` structure
 3. Include all sections: Background, Brainstorming, Methodology, Implementation, Results, Testing, Conclusion
 4. Present report summary to user
 
