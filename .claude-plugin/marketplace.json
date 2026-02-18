@@ -1,17 +1,15 @@
 {
   "name": "claude-researchers-marketplace",
   "owner": {
-    "name": "axect"
+    "name": "axect",
+    "url": "https://github.com/Axect"
   },
   "plugins": [
     {
       "name": "claude-researchers",
-      "source": {
-        "type": "github",
-        "repo": "Axect/claude_researchers"
-      },
-      "version": "0.1.0",
-      "description": "Multi-model research workflow for Physics, AI/ML, and scientific domains"
+      "source": "./",
+      "description": "Multi-model research workflow for Physics, AI/ML, and scientific domains",
+      "version": "0.1.0"
     }
   ]
 }
