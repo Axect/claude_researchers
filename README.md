@@ -40,16 +40,14 @@ This plugin requires three MCP servers configured in your Claude Code environmen
 
 ```bash
 # Gemini CLI — cross-model brainstorming and review
-claude mcp add gemini-cli -- npx -y @anthropic-ai/gemini-cli
+claude mcp add gemini-cli -- npx -y gemini-mcp-tool
 
 # Codex CLI — independent analysis and ideation
-claude mcp add codex-cli -- npx -y @anthropic-ai/codex-cli
+claude mcp add codex-cli -- npx -y @cexll/codex-mcp-server
 
 # Context7 — library documentation lookup
-claude mcp add context7 -- npx -y @anthropic-ai/context7
+claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
 ```
-
-> **Note**: MCP server package names above are examples. Check each server's actual installation instructions for the correct package names.
 
 ### Python Dependencies
 
