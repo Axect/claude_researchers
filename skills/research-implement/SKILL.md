@@ -22,7 +22,7 @@ Implements research code based on an existing research plan. Requires a `researc
 2. Otherwise, find the most recent research plan:
    - Glob for `outputs/*/plan/research_plan.md`
    - Select the most recently modified one.
-3. If no plan is found, inform the user and suggest running `/claude-researchers:research-brainstorm` first, or creating a plan manually.
+3. If no plan is found, inform the user and suggest running `/magi-researchers:research-brainstorm` first, or creating a plan manually.
 4. Read the research plan and identify:
    - The output base directory (parent of `plan/`)
    - Required algorithms/models to implement

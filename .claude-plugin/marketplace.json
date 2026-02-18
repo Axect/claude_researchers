@@ -1,14 +1,14 @@
 {
-  "name": "claude-researchers-marketplace",
+  "name": "magi-researchers-marketplace",
   "owner": {
     "name": "axect",
     "url": "https://github.com/Axect"
   },
   "plugins": [
     {
-      "name": "claude-researchers",
+      "name": "magi-researchers",
       "source": "./",
-      "description": "Multi-model research workflow for Physics, AI/ML, and scientific domains",
+      "description": "Three AI models, one synthesis — multi-model research workflow for scientific domains",
       "version": "0.1.0"
     }
   ]

@@ -1,7 +1,7 @@
 [project]
-name = "claude-researchers"
+name = "magi-researchers"
 version = "0.1.0"
-description = "Research agent workflow for Physics, AI/ML, and other domains"
+description = "Three AI models, one synthesis — multi-model research workflow for scientific domains"
 requires-python = ">=3.11"
 dependencies = [
     "matplotlib>=3.8",
@@ -10,7 +10,7 @@ dependencies = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["claude_researchers"]
+packages = ["magi_researchers"]
 
 [build-system]
 requires = ["hatchling"]
