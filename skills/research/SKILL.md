@@ -47,7 +47,7 @@ When this skill is invoked, execute the full research pipeline below. **Always p
 
 ### Phase 1: Brainstorming
 
-Execute the `/claude-researchers:research-brainstorm` workflow:
+Execute the `/magi-researchers:research-brainstorm` workflow:
 
 **Step 1a — Parallel Brainstorming:**
 - Call `mcp__gemini-cli__brainstorm` with `model: "gemini-3-pro-preview"` for creative/theoretical ideas
@@ -83,7 +83,7 @@ Execute the `/claude-researchers:research-brainstorm` workflow:
 
 ### Phase 3: Implementation
 
-Execute the `/claude-researchers:research-implement` workflow:
+Execute the `/magi-researchers:research-implement` workflow:
 
 1. Follow `research_plan.md` to implement code in `src/`
 2. Use Context7 for library documentation as needed
@@ -96,7 +96,7 @@ Execute the `/claude-researchers:research-implement` workflow:
 
 ### Phase 4: Testing & Visualization
 
-Execute the `/claude-researchers:research-test` workflow:
+Execute the `/magi-researchers:research-test` workflow:
 
 **Step 4a — Test Design:**
 - Consult Gemini for test case suggestions
@@ -118,7 +118,7 @@ Execute the `/claude-researchers:research-test` workflow:
 
 ### Phase 5: Reporting
 
-Execute the `/claude-researchers:research-report` workflow:
+Execute the `/magi-researchers:research-report` workflow:
 
 1. Gather all phase outputs
 2. Generate `report.md` using `${CLAUDE_PLUGIN_ROOT}/templates/report_template.md` structure

@@ -1,6 +1,47 @@
-# Claude Researchers
+# MAGI Researchers
 
-A Claude Code plugin providing a multi-model research workflow for Physics, AI/ML, and scientific domains.
+**Three AI models. One synthesis.**
+
+> *Like the MAGI system in Evangelion — three supercomputers cross-verifying each other to reach a unified decision — this plugin orchestrates Claude, Gemini, and Codex to conduct rigorous, multi-perspective research.*
+
+![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)
+![License: MIT](https://img.shields.io/badge/license-MIT-green)
+![Claude Code](https://img.shields.io/badge/claude--code-plugin-blueviolet)
+
+---
+
+## Why MAGI?
+
+- **Cross-verification by design** — Three independent AI models brainstorm, review each other's work, and synthesize results. No single-model blind spots.
+- **Publication-ready outputs** — Structured reports, test suites, and `scienceplots`-styled figures in one pipeline.
+- **Domain-aware** — Built-in templates for physics, AI/ML, and extensible to any scientific domain.
+
+## Architecture
+
+```
+          ┌──────────────────────────────────────────────┐
+          │              MAGI SYSTEM                      │
+          │                                               │
+          │  MELCHIOR (Claude)    — Synthesis & Planning   │
+          │  BALTHASAR (Gemini)   — Creative Brainstorming │
+          │  CASPAR (Codex)       — Independent Analysis   │
+          │                                               │
+          └────────────┬────────────┬────────────┬────────┘
+                       │            │            │
+                       ▼            ▼            ▼
+               ┌─────────────────────────────────────┐
+               │          Cross-Verification          │
+               │  Gemini reviews Codex's ideas        │
+               │  Codex reviews Gemini's ideas        │
+               │  Claude synthesizes all perspectives  │
+               └──────────────────┬──────────────────┘
+                                  │
+                                  ▼
+               ┌─────────────────────────────────────┐
+               │        Unified Research Output       │
+               │  Plan → Code → Tests → Plots → Report│
+               └─────────────────────────────────────┘
+```
 
 ## Installation
 
@@ -9,8 +50,8 @@ A Claude Code plugin providing a multi-model research workflow for Physics, AI/M
 Run these commands inside Claude Code (no manual clone needed):
 
 ```
-/plugin marketplace add Axect/claude_researchers
-/plugin install claude-researchers@claude-researchers-marketplace
+/plugin marketplace add Axect/magi-researchers
+/plugin install magi-researchers@magi-researchers-marketplace
 ```
 
 ### Option 2: Local Plugin Directory (Development)
@@ -18,8 +59,8 @@ Run these commands inside Claude Code (no manual clone needed):
 For plugin development or testing:
 
 ```bash
-git clone https://github.com/Axect/claude_researchers.git
-claude --plugin-dir /path/to/claude_researchers
+git clone https://github.com/Axect/magi-researchers.git
+claude --plugin-dir /path/to/magi-researchers
 ```
 
 ## Prerequisites
@@ -54,7 +95,7 @@ uv add matplotlib SciencePlots numpy
 ### Full Research Pipeline
 
 ```
-/claude-researchers:research "your research topic" --domain physics
+/magi-researchers:research "your research topic" --domain physics
 ```
 
 This runs the complete pipeline:
@@ -67,10 +108,10 @@ This runs the complete pipeline:
 ### Individual Phase Skills
 
 ```
-/claude-researchers:research-brainstorm "topic"   # Brainstorming only
-/claude-researchers:research-implement             # Implementation (needs existing plan)
-/claude-researchers:research-test                  # Testing & visualization
-/claude-researchers:research-report                # Report generation
+/magi-researchers:research-brainstorm "topic"   # Brainstorming only
+/magi-researchers:research-implement             # Implementation (needs existing plan)
+/magi-researchers:research-test                  # Testing & visualization
+/magi-researchers:research-report                # Report generation
 ```
 
 ## Output Structure
@@ -117,6 +158,10 @@ Add to your project's `.claude/settings.local.json`:
   }
 }
 ```
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on contributing domain templates, reporting bugs, and submitting pull requests.
 
 ## License
 
